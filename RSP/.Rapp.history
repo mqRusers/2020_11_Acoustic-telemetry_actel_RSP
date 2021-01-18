@@ -1,0 +1,69 @@
+clear()
+library(RSP)#
+library(actel)#
+library(raster)#
+library(ggplot2)#
+library(patchwork)#
+library(ggsn)#
+library(cmocean)
+study.data <- explore(tz = "Australia/NSW", inactive.error = 10, save.tables.locally = TRUE)
+spatial <- loadSpatial()
+head(spatial)
+water <- loadShape(shape = "Lake_Macquarie.shp", size = 0.0002, buffer = 0.05,#
+                                     coord.x = "Longitude", coord.y = "Latitude")
+plotRaster(input = study.data, base.raster = water, coord.x = "Longitude", coord.y = "Latitude")
+recap <- read.csv("recaptures.csv")
+plotRaster(input = study.data, base.raster = water, coord.x = "Longitude", coord.y = "Latitude")
+plotRaster(input = study.data, base.raster = water, coord.x = "Longitude", coord.y = "Latitude") +#
+    geom_point(data = recap, aes(x = Longitude, y = Latitude), shape = 21, fill = "black", colour = "white")
+?runRSP # You can set up the analysis the way you need!
+load("rsp.data.Rdata") # Load RSP analysis because it takes a long time to run
+rsp.data$bio # Biometrics file
+distance.data <- getDistances(rsp.data)
+plotDistances(distance.data, group = "A")
+plotDistances(distance.data, group = "B", compare = FALSE) +#
+  theme(legend.position = "none")
+setMinimumSize()
+?setMinimumSize
+library(RSP)#
+library(actel)#
+library(raster)#
+library(ggplot2)#
+library(patchwork)#
+library(ggsn)#
+library(cmocean)
+study.data <- explore(tz = "Australia/NSW", inactive.error = 10, save.tables.locally = TRUE)#
+y # reuse detections?#
+n # save strays?#
+y # invalidate/expand moves in A69-9004-483?#
+33#
+y # confirm?#
+n # invalidate more?#
+y # invalidate/expand moves in A69-9004-492?#
+1:186#
+y # confirm?#
+n # invalidate/expand moves in A69-9004-493?#
+y # invalidate/expand moves in A69-9004-494?#
+1:208#
+y # confirm?#
+n # invalidate/expand moves in A69-9004-495?#
+y # invalidate/expand moves in A69-9004-496?#
+1:757#
+y # confirm?#
+n # invalidate/expand moves in A69-9004-497?#
+n # invalidate/expand moves in A69-9002-10473?#
+y # invalidate/expand moves in A69-9002-10474?#
+107#
+y # confirm?#
+n # invalidate more?#
+n # invalidate/expand moves in A69-9002-10480?#
+n # save results?#
+n # do not save copy of analysis to log
+spatial <- loadSpatial()
+head(spxatial)
+head(spatial)
+water <- loadShape(shape = "Lake_Macquarie.shp", size = 0.0002, buffer = 0.05,#
+                                     coord.x = "Longitude", coord.y = "Latitude")
+tl <- transitionLayer(water, directions = 8)
+load("rsp.data.Rdata") # Load RSP analysis because it takes a long time to run
+rsp.data$detections$`A69-9004-485`[90:150, ]
