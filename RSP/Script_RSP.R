@@ -104,6 +104,15 @@ plotTracks(input = rsp.data, base.raster = water, tag = "A69-9004-485", track = 
 plotTracks(input = rsp.data, base.raster = water, tag = "A69-9004-485", track = 6) + 
   	addStations(rsp.data) + addRecaptures(Signal = "485") 
 
+# Animate RSP tracks:
+animateTracks(input = rsp.data, base.raster = water, tags = c("A69-9004-485", "A69-9002-10480"), 
+	start.time = "2014-10-29 00:00:00", stop.time = "2014-11-05 00:00:00", add.stations = TRUE, by.group = FALSE, 
+	save.gif = TRUE, gif.name = "Animation.gif", width = 480, height = 480, nframes = 150, add.legend = TRUE)
+
+animateTracks(input = rsp.data, base.raster = water, start.time = "2014-09-01 00:00:00", stop.time = "2015-01-01 00:00:00", 
+	by.group = TRUE, add.legend = FALSE, save.gif = TRUE, gif.name = "Animation_total.gif", width = 720, height = 360, nframes = 200)
+
+
 # Inspect RSP output when recaptures are included:
 rsp.data$detections$`A69-9004-485`[90:150, ]
 
